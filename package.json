@@ -1,0 +1,41 @@
+{
+  "name": "dolmetscher",
+  "version": "0.0.0",
+  "description": "node package to translate between languages using multiple integrated translators",
+  "scripts": {
+    "lint": "eslint --ext js,md .",
+    "test": "jest",
+    "precommit": "lint-staged",
+    "prepush": "jest"
+  },
+  "dependencies": {
+    "bent": "^7.3.9"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-concise": "^0.15.0",
+    "eslint-config-concise-jest": "^0.15.0",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^5.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier-eslint-cli": "^4.4.0"
+  },
+  "repository": "nidhaloff/dolmetscher",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "*.md",
+    "index.js"
+  ],
+  "keywords": [],
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
