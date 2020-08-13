@@ -1,13 +1,7 @@
-const {GoogleTranslator} = require('../dolmetscher');
+const { GoogleTranslator } = require("../dolmetscher");
 
+const google = new GoogleTranslator("en", "auto");
 
-const google = new GoogleTranslator('en', 'auto');
-
-google.translateText("bonjour la vie").then(res => console.log("translatedText: ", res));
-
-
-
-
-
-
-
+google
+  .translateText("bonjour la vie")
+  .then(res => console.log("translatedText: ", res));

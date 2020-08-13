@@ -1,3 +1,0 @@
-extends:
-  - concise
-  - concise-jest
