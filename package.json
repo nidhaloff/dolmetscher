@@ -1,6 +1,8 @@
 {
   "name": "dolmetscher",
   "version": "0.0.0",
+  "url": "https://github.com/nidhaloff/dolmetscher/issues",
+  "email": "nidhalbacc@gmail.com",
   "description": "A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.",
   "scripts": {
     "test": "jest"
@@ -19,5 +21,18 @@
     "*.md",
     "dolmetscher.js"
   ],
-  "keywords": []
+  "keywords": ["google", 
+    "translation", 
+    "google translate", 
+    "google-translate", 
+    "translation-api", 
+    "translationAPI", 
+    "api", 
+    "translator", 
+    "simple-translation", 
+    "batch-translation",
+    "file-translation", 
+    "multiple-translations", 
+    "automated-translations", 
+    "automation"]
 }
