@@ -1,4 +1,4 @@
-const { GoogleTranslator } = require("../dolmetscher");
+const { GoogleTranslator } = require("../src/dolmetscher");
 
 const google = new GoogleTranslator("en", "auto");
 
