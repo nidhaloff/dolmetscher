@@ -10,8 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "repository": "https://github.com/nidhaloff/dolmetscher",
   "license": "MIT",
   "engines": {
@@ -21,18 +20,20 @@
     "*.md",
     "dolmetscher.js"
   ],
-  "keywords": ["google", 
-    "translation", 
-    "google translate", 
-    "google-translate", 
-    "translation-api", 
-    "translationAPI", 
-    "api", 
-    "translator", 
-    "simple-translation", 
+  "keywords": [
+    "google",
+    "translation",
+    "google translate",
+    "google-translate",
+    "translation-api",
+    "translationAPI",
+    "api",
+    "translator",
+    "simple-translation",
     "batch-translation",
-    "file-translation", 
-    "multiple-translations", 
-    "automated-translations", 
-    "automation"]
+    "file-translation",
+    "multiple-translations",
+    "automated-translations",
+    "automation"
+  ]
 }
