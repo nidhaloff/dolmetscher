@@ -3,16 +3,12 @@
   "version": "0.0.0",
   "description": "A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.",
   "scripts": {
-    "test": "jest",
-    "prepush": "jest"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.2"
   },
   "devDependencies": {
-    "husky": "^0.14.3",
-    "jest": "^26.2.2",
-    "npm-run-all": "^4.1.2"
   },
   "repository": "https://github.com/nidhaloff/dolmetscher",
   "license": "MIT",
