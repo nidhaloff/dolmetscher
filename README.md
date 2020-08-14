@@ -1,4 +1,9 @@
 # dolmetscher
+![npm](https://img.shields.io/npm/v/dolmetscher)
+![NPM](https://img.shields.io/npm/l/dolmetscher)
+![npm](https://img.shields.io/npm/dw/dolmetscher)
+[![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/nidhaloff?new=1)
+[![https://twitter.com/NidhalBaccouri](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=plastic)]()
 
 A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.
 
