@@ -25,7 +25,9 @@ class BaseTranslator {
       const l = text.length;
       return l <= max && l >= min ? true : false;
     } else {
-      throw new Error(`The input text length must be of type string between ${this.minChars} and ${this.maxChars} characters`);
+      throw new Error(
+        `The input text length must be of type string between ${this.minChars} and ${this.maxChars} characters`
+      );
     }
   }
 
@@ -36,6 +38,11 @@ class BaseTranslator {
     } catch (err) {
       throw new Error("HTTP Error occured while requesting the translation");
     }
+  }
+
+  _syncRequest(url, params) {
+    const res = axios.get(url, { params: params });
+    return res.data;
   }
 }
 
@@ -55,7 +62,6 @@ class GoogleTranslator extends BaseTranslator {
   }
 
   async translateText(text) {
-
     if (this.isValid(text, this.minChars, this.maxChars)) {
       this.params.q = text;
     }
@@ -117,69 +123,39 @@ class MymemoryTranslator extends BaseTranslator {
   }
 
   async translateText(text, returnAll = false) {
-
     if (this.isValid(text, this.minChars, this.maxChars)) {
       this.params.q = text;
     }
 
-    try{
-       const response = await this._request(this.url, this.params);
+    try {
+      const response = await this._request(this.url, this.params);
 
-    if (!response) {
-      throw new Error(`No translation found for ${text}`);
-    }
+      if (!response) {
+        throw new Error(`No translation found for ${text}`);
+      }
 
-    console.log("response: ", response);
-    const data = response.responseData.translatedText;
-    if (data) {
-      return data;
-    } else {
+      const data = await response.responseData.translatedText;
+      if (data) {
+        return data;
+      }
+
       const matches = response.matches;
       if (!returnAll && matches.length === 1) {
         return matches[0].translation;
-      } else {
-        const synonyms = [];
-        matches.forEach((match) => {
-          synonyms.push(match);
-        });
-
-        if (!synonyms) {
-          throw new Error(`No synonyms found for ${text}`);
-        }
-
-        return synonyms;
       }
-    }
-    }
-    catch(err) { console.log(err)}
-   
-  }
 
-  async translateBatch(texts) {
-    const arr = [];
+      const synonyms = [];
+      matches.forEach((match) => {
+        synonyms.push(match);
+      });
 
-    try {
-      for (const text of texts) {
-        //console.log("params: ", this.params);
-        const res = await this.translateText(text);
-        arr.push(res);
+      if (!synonyms) {
+        throw new Error(`No synonyms found for ${text}`);
       }
-    } catch (err) {
-      console.log("error translating batch: ", err);
-    }
 
-    return arr;
-  }
-
-  async translateFile(f, ASYNC = false) {
-    try {
-      const text = ASYNC
-        ? await fs.promises.readFile(f, "utf8")
-        : fs.readFileSync(f, "utf-8");
-      const result = await this.translateText(text);
-      return result;
+      return synonyms;
     } catch (err) {
-      console.error("translation file error: ", err);
+      console.log(err);
     }
   }
 }

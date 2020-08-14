@@ -11,16 +11,15 @@ Therefore, I decided to build this simple tool. It is 100% free, unlimited, easy
 
 Basically, my goal was to integrate support for multiple famous translators in this tool.
 
-This package idea is inspired from the python   [**deep_translator**](https://github.com/nidhaloff/deep_translator) package, where multiple translators are integrated in one too.
+This package idea is inspired from my python   [**deep_translator**](https://github.com/nidhaloff/deep_translator) package, where multiple translators are integrated in one too.
 
 ## Features:
-- Support for google translator
+- Support for **google translator**
 - Simple text translation
 - Batch translation
 - File translation
+- Support for the **Mymemory translator** (version >= 0.0.3)
 
-## Todos
-- Add support for other translators (coming soon)
 
 ## Installation
 
@@ -30,15 +29,17 @@ npm install dolmetscher --save
 
 ## Usage
 
-#### Imports
+##### Imports
 
 ```js
 
-const {GoogleTranslator} = require('dolmetscher');
+const {GoogleTranslator, MymemoryTranslator} = require('dolmetscher');
 
 ```
+### Google Translator:
+In this section, usage example of the GoogleTranslator are provided
 
-#### Simple Text Translation
+##### Simple Text Translation
 
 ```js
 /*
@@ -75,7 +76,7 @@ async function translate() {
 
 ```
 
-#### Batch Translation
+##### Batch Translation
 
 ```js
 
@@ -87,7 +88,7 @@ google.translateBatch(texts)
 
 ```
 
-#### File Translation
+##### File Translation
 
 ```js
 
@@ -99,13 +100,32 @@ google.translateFile(f)
 
 ```
 
+### Mymemory Translator:
+In this section, usage example of the MymemoryTranslator are provided
+
+##### Simple Text Translation
+
+```js
+/*
+- the first argument is the target language to translate to
+- the second argument is the source language (provide this argument for better results)
+- Finally, provide the text you want to translate as an argument to the translate function
+
+*/
+const mymemory = new MymemoryTranslator("fr", "en");
+
+mymemory.translateText("keep it up, you are awesome")
+.then(res => console.log("mymemory result: ", res));
+
+```
+
 ## Examples
 
-There are examples for each functionality in the examples folder.
+There are examples for each translator in the examples folder. Feel free to check it out.
 
 
 ## Contributions
 
-Contributions are always welcome. Feel free to make a pull request. I would appreciate it if you star the github repo so that others notice it.
+Contributions are always welcome. Feel free to make a pull request. I would appreciate it if you star the github repo so that other devs notice it.
 
 Please feel free to open an issue if you encountered any problems or if you have a new idea or enhancement.
