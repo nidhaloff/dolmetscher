@@ -7,7 +7,7 @@
 
 A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.
 
-> **_NOTE:_**  at the moment, only the google translator is supported. However, other translators will be integrated SOON.
+> **_NOTE:_**  First, the google translate was integrated. dometscher >= 0.0.3 supports the mymemory translator too. More translators will be integrated in the future.
 
 ## Motivation
 There are other libraries that can be used for this task, but let's face it, most of them are buggy, not free, limited, not supported anymore or complex to use.
