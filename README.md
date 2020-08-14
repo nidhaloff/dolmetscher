@@ -34,7 +34,7 @@ npm install dolmetscher --save
 
 ```js
 
-const {GoogleTranslator} = require('../dolmetscher');
+const {GoogleTranslator} = require('dolmetscher');
 
 ```
 
@@ -98,6 +98,10 @@ google.translateFile(f)
             .then(res => console.log("translated file: ", res));
 
 ```
+
+## Examples
+
+There are examples for each functionality in the examples folder.
 
 
 ## Contributions
