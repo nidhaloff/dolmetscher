@@ -9,7 +9,16 @@
 
 A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.
 
-> **_NOTE:_**  First, the google translate was integrated. dometscher >= 0.0.3 supports the mymemory translator too. More translators will be integrated in the future.
+> **_NOTE:_**  Dolmetscher is a german word that refers to a person who professionally translates statements in a foreign language.
+
+ Dolmetscher supports the google and mymemory translator, which gives flexibility to the user to choose the translator he wants to use or to compare & automate translations.
+
+## Why you should use dolmetscher?
+
+- most of translation library for node are buggy and does not work properly
+- dolmetscher is stable and maintained regularly
+- dolmetscher is lightweight and fast
+- dolmetscher have only one single dependency, not like other packages who depends on more packages, which is risky
 
 ## Motivation
 There are other libraries that can be used for this task, but let's face it, most of them are buggy, not free, limited, not supported anymore or complex to use.
