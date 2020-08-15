@@ -6,12 +6,15 @@
   "description": "A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.",
   "main": "src/dolmetscher.js",
   "scripts": {
-    "test": "jest"
+    "test": "mocha"
   },
   "dependencies": {
     "axios": "^0.19.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1"
+  },
   "repository": "https://github.com/nidhaloff/dolmetscher",
   "license": "MIT",
   "engines": {

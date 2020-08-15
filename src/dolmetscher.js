@@ -26,14 +26,13 @@ class BaseTranslator {
 
   isValid(text, min, max) {
     if (text && (typeof text == "string" || text instanceof String)) {
-      const l = text.length;
+      const l = text.trim().length;
       return l <= max && l >= min ? true : false;
     } else {
-      throw new Error(
-        `The input text length must be of type string between ${this.minChars} and ${this.maxChars} characters`
-      );
+      throw `The input text length must be of type string between ${this.minChars} and ${this.maxChars} characters`;
     }
   }
+        
 
   async _request(url, params) {
     try {
@@ -65,14 +64,15 @@ class GoogleTranslator extends BaseTranslator {
       q: "",
     };
   }
-  
+
   static getSupportedLanguages() {
     return languages;
   }
 
   async translateText(text) {
+    
     if (this.isValid(text, this.minChars, this.maxChars)) {
-      this.params.q = text;
+      this.params.q = text.trim();
     }
 
     try {
@@ -137,7 +137,7 @@ class MymemoryTranslator extends BaseTranslator {
 
   async translateText(text, returnAll = false) {
     if (this.isValid(text, this.minChars, this.maxChars)) {
-      this.params.q = text;
+      this.params.q = text.trim();
     }
 
     try {
