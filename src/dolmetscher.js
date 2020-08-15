@@ -1,12 +1,15 @@
 const axios = require("axios");
 const fs = require("fs");
+const languages = require('./languages');
 
 class BaseTranslator {
   constructor(baseUrl) {
+    this.languages = languages;
     this.configs = {
       google: {
         url: "https://translate.google.com/m?",
         pattern: 'class="t0">',
+        supportedLanguages: this.languages,
         key: "q",
         minChars: 1,
         maxChars: 5000,
@@ -15,6 +18,7 @@ class BaseTranslator {
         url: "http://api.mymemory.translated.net/get",
         minChars: 1,
         maxChars: 5000,
+        supportedLanguages: this.languages,
         key: "q",
       },
     };
@@ -47,6 +51,7 @@ class BaseTranslator {
 }
 
 class GoogleTranslator extends BaseTranslator {
+  
   constructor(to, from = "auto") {
     super();
     this.to = to;
@@ -59,6 +64,10 @@ class GoogleTranslator extends BaseTranslator {
       hl: to,
       q: "",
     };
+  }
+  
+  static getSupportedLanguages() {
+    return languages;
   }
 
   async translateText(text) {
@@ -120,6 +129,10 @@ class MymemoryTranslator extends BaseTranslator {
       langpair: `${this.from}|${this.to}`,
       q: "",
     };
+  }
+
+  static getSupportedLanguages() {
+    return languages;
   }
 
   async translateText(text, returnAll = false) {

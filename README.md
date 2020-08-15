@@ -44,6 +44,13 @@ const {GoogleTranslator, MymemoryTranslator} = require('dolmetscher');
 ### Google Translator:
 In this section, usage example of the GoogleTranslator are provided
 
+##### Check supported languages
+```js
+// you can check the supported languages first 
+console.log("google translate supported languages are: ", GoogleTranslator.getSupportedLanguages());
+
+```
+
 ##### Simple Text Translation
 
 ```js
@@ -107,6 +114,13 @@ google.translateFile(f)
 
 ### Mymemory Translator:
 In this section, usage example of the MymemoryTranslator are provided
+
+##### Check supported languages
+```js
+// you can check the supported languages first 
+console.log("Mymemory supported languages are: ", MymemoryTranslator.getSupportedLanguages());
+
+```
 
 ##### Simple Text Translation
 

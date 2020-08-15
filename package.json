@@ -1,6 +1,6 @@
 {
   "name": "dolmetscher",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "url": "https://github.com/nidhaloff/dolmetscher/issues",
   "email": "nidhalbacc@gmail.com",
   "description": "A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.",
