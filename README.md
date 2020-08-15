@@ -148,6 +148,33 @@ mymemory.translateText("keep it up, you are awesome")
 .then(res => console.log("mymemory result: ", res));
 
 ```
+
+
+##### Batch Translation
+
+```js
+
+const mymemory = new MymemoryTranslator("fr", "en");
+
+const texts = ["Hello world", "How are you"];
+
+mymemory.translateBatch(texts)
+.then(res => console.log("mymemory result: ", res));
+
+```
+
+##### File Translation
+
+```js
+
+const mymemory = new MymemoryTranslator("en", "de");
+const filePath = 'your_file_path.txt';
+
+mymemory.translateFile(filePath)
+.then(res => console.log("mymemory result: ", res));
+
+```
+
 ## Tests
 
 open terminal and run this command to run the test suite

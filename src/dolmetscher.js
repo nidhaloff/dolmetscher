@@ -171,6 +171,34 @@ class MymemoryTranslator extends BaseTranslator {
       console.log(err);
     }
   }
+
+
+  async translateBatch(texts) {
+    const arr = [];
+
+    try {
+      for (const text of texts) {
+        const res = await this.translateText(text);
+        arr.push(res);
+      }
+    } catch (err) {
+      console.log("error translating batch: ", err);
+    }
+
+    return arr;
+  }
+
+  async translateFile(f, ASYNC = false) {
+    try {
+      const text = ASYNC
+        ? await fs.promises.readFile(f, "utf8")
+        : fs.readFileSync(f, "utf-8");
+      const result = await this.translateText(text);
+      return result;
+    } catch (err) {
+      console.error("translation file error: ", err);
+    }
+  }
 }
 
 module.exports = { GoogleTranslator, MymemoryTranslator };
