@@ -5,6 +5,8 @@
 [![Donate](https://img.shields.io/badge/$-support-ff69b4.svg?style=flat)](https://www.buymeacoffee.com/nidhaloff?new=1)
 [![https://twitter.com/NidhalBaccouri](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=plastic)]()
 
+## Translations for humans
+
 A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.
 
 > **_NOTE:_**  First, the google translate was integrated. dometscher >= 0.0.3 supports the mymemory translator too. More translators will be integrated in the future.
@@ -136,6 +138,13 @@ const mymemory = new MymemoryTranslator("fr", "en");
 mymemory.translateText("keep it up, you are awesome")
 .then(res => console.log("mymemory result: ", res));
 
+```
+## Tests
+
+open terminal and run this command to run the test suite
+
+```bash
+npm run test
 ```
 
 ## Examples
