@@ -13,7 +13,8 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.1.1"
+    "mocha": "^8.1.1",
+    "jssoup": "0.0.12"
   },
   "repository": "https://github.com/nidhaloff/dolmetscher",
   "license": "MIT",

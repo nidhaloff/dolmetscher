@@ -62,7 +62,8 @@ class BaseTranslator {
       const response = await axios.get(url, { params: params });
       return response.data;
     } catch (err) {
-      throw new Error("HTTP Error occured while requesting the translation");
+      throw `HTTP Error occured while requesting the translation. 
+            ${err}`;
     }
   }
 
@@ -80,8 +81,8 @@ class GoogleTranslator extends BaseTranslator {
     this.minChars = this.configs.google.minChars;
     this.maxChars = this.configs.google.maxChars;
     this.params = {
-      sl: from,
-      hl: to,
+      sl: this.from,
+      hl: this.to,
       q: "",
     };
   }
@@ -105,8 +106,8 @@ class GoogleTranslator extends BaseTranslator {
       const translated = body.substring(0, body.indexOf("<"));
 
       return translated;
-    } catch (error) {
-      console.log("translation error : ", error);
+    } catch (err) {
+      throw `translation error: ${err} `;
     }
   }
 
@@ -119,7 +120,7 @@ class GoogleTranslator extends BaseTranslator {
         arr.push(res);
       }
     } catch (err) {
-      console.log("error translating batch: ", err);
+      throw `error translating batch: ${err}`);
     }
 
     return arr;
@@ -133,7 +134,7 @@ class GoogleTranslator extends BaseTranslator {
       const result = await this.translateText(text);
       return result;
     } catch (err) {
-      console.error("translation file error: ", err);
+      throw `translation file error: ${err}`;
     }
   }
 }
@@ -141,8 +142,8 @@ class GoogleTranslator extends BaseTranslator {
 class MymemoryTranslator extends BaseTranslator {
   constructor(to, from = "auto") {
     super(to, from);
-    this.to = to;
-    this.from = from === "auto" ? "Lao" : from;
+    this.to = this.to;
+    this.from = this.from === "auto" ? "Lao" : this.from;
     this.url = this.configs.mymemory.url;
     this.minChars = this.configs.mymemory.minChars;
     this.maxChars = this.configs.mymemory.maxChars;
@@ -165,7 +166,7 @@ class MymemoryTranslator extends BaseTranslator {
       const response = await this._request(this.url, this.params);
 
       if (!response) {
-        throw new Error(`No translation found for ${text}`);
+        throw `No translation found for ${text}`;
       }
 
       const data = await response.responseData.translatedText;
@@ -184,7 +185,7 @@ class MymemoryTranslator extends BaseTranslator {
       });
 
       if (!synonyms) {
-        throw new Error(`No synonyms found for ${text}`);
+        throw `No synonyms found for ${text}`;
       }
 
       return synonyms;
@@ -203,7 +204,7 @@ class MymemoryTranslator extends BaseTranslator {
         arr.push(res);
       }
     } catch (err) {
-      console.log("error translating batch: ", err);
+      throw `error translating batch: ${err}`;
     }
 
     return arr;
@@ -217,7 +218,7 @@ class MymemoryTranslator extends BaseTranslator {
       const result = await this.translateText(text);
       return result;
     } catch (err) {
-      console.error("translation file error: ", err);
+      throw `translation file error: ${err}`;
     }
   }
 }
