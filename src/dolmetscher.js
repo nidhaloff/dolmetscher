@@ -120,7 +120,7 @@ class GoogleTranslator extends BaseTranslator {
         arr.push(res);
       }
     } catch (err) {
-      throw `error translating batch: ${err}`);
+      throw `error translating batch: ${err}`;
     }
 
     return arr;
