@@ -125,9 +125,9 @@ class GoogleTranslator extends BaseTranslator {
     return arr;
   }
 
-  async translateFile(f, ASYNC = false) {
+  async translateFile(f, readAsync = false) {
     try {
-      const text = ASYNC
+      const text = readAsync
         ? await fs.promises.readFile(f, "utf8")
         : fs.readFileSync(f, "utf-8");
       const result = await this.translateText(text);
@@ -209,9 +209,9 @@ class MymemoryTranslator extends BaseTranslator {
     return arr;
   }
 
-  async translateFile(f, ASYNC = false) {
+  async translateFile(f, readAsync=false) {
     try {
-      const text = ASYNC
+      const text = readAsync
         ? await fs.promises.readFile(f, "utf8")
         : fs.readFileSync(f, "utf-8");
       const result = await this.translateText(text);
