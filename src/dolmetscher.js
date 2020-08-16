@@ -3,8 +3,15 @@ const fs = require("fs");
 const languages = require('./languages');
 
 class BaseTranslator {
-  constructor(baseUrl) {
+  constructor(to, from) {
+    
     this.languages = languages;
+
+    if (this.isLangSupported(to) && this.isLangSupported(from)) {
+      this.to = to;
+      this.from = from;
+    }
+
     this.configs = {
       google: {
         url: "https://translate.google.com/m?",
@@ -22,6 +29,22 @@ class BaseTranslator {
         key: "q",
       },
     };
+  }
+
+  langExists(lang) {
+    const exist = Object.keys(languages).includes(lang);
+    if (exist || lang === "auto") {
+      return true;
+    }
+    return false;
+  }
+  isLangSupported(lang) {
+    if (this.langExists(lang)) {
+      return true;
+    }
+    else {
+      throw `${lang} is not a supported language. Check supported language by calling the getSupportedLanguage function`;
+    }
   }
 
   isValid(text, min, max) {
@@ -52,9 +75,7 @@ class BaseTranslator {
 class GoogleTranslator extends BaseTranslator {
   
   constructor(to, from = "auto") {
-    super();
-    this.to = to;
-    this.from = from;
+    super(to, from);
     this.url = this.configs.google.url;
     this.minChars = this.configs.google.minChars;
     this.maxChars = this.configs.google.maxChars;
@@ -119,7 +140,7 @@ class GoogleTranslator extends BaseTranslator {
 
 class MymemoryTranslator extends BaseTranslator {
   constructor(to, from = "auto") {
-    super();
+    super(to, from);
     this.to = to;
     this.from = from === "auto" ? "Lao" : from;
     this.url = this.configs.mymemory.url;
