@@ -87,8 +87,9 @@ class GoogleTranslator extends BaseTranslator {
     };
   }
 
-  static getSupportedLanguages() {
-    return this.configs.google.supportedLanguages;
+  static getSupportedLanguages(asList=false) {
+    if (asList) return Object.keys(languages);
+    return languages;
   }
 
   async translateText(text) {
@@ -153,8 +154,9 @@ class MymemoryTranslator extends BaseTranslator {
     };
   }
 
-  static getSupportedLanguages() {
-    return this.configs.mymemory.supportedLanguages;
+  static getSupportedLanguages(asList=false) {
+    if (asList) return Object.keys(languages);
+    return languages;
   }
 
   async translateText(text, returnAll = false) {
