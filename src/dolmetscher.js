@@ -87,7 +87,7 @@ class GoogleTranslator extends BaseTranslator {
   }
 
   static getSupportedLanguages() {
-    return languages;
+    return this.configs.google.supportedLanguages;
   }
 
   async translateText(text) {
@@ -153,7 +153,7 @@ class MymemoryTranslator extends BaseTranslator {
   }
 
   static getSupportedLanguages() {
-    return languages;
+    return this.configs.mymemory.supportedLanguages;
   }
 
   async translateText(text, returnAll = false) {
