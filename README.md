@@ -18,7 +18,7 @@ A flexible FREE and UNLIMITED node package to translate between different langua
 - most of translation library for node are buggy and does not work properly
 - dolmetscher is stable and maintained regularly
 - dolmetscher is lightweight and fast
-- dolmetscher have only one single dependency, not like other packages who depends on more packages, which is risky
+- dolmetscher depends only on the axios library, not like other packages, which depend on multiple other packages.
 
 ## Motivation
 There are other libraries that can be used for this task, but let's face it, most of them are buggy, not free, limited, not supported anymore or complex to use.
