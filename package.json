@@ -21,10 +21,6 @@
   "engines": {
     "node": ">=6"
   },
-  "files": [
-    "*.md",
-    "dolmetscher.js"
-  ],
   "keywords": [
     "google",
     "translation",
