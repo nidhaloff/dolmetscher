@@ -1,8 +1,6 @@
 # dolmetscher
 ![npm](https://img.shields.io/npm/v/dolmetscher)
-![Travis (.com)](https://img.shields.io/travis/com/nidhaloff/dolmetscher)
-![NPM](https://img.shields.io/npm/l/dolmetscher)
-![npm](https://img.shields.io/npm/dm/dolmetscher)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nidhaloff/dolmetscher/build)
 [![https://twitter.com/NidhalBaccouri](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=plastic)](https://twitter.com/NidhalBaccouri)
 
 ## Translations for humans
