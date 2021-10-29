@@ -31,14 +31,14 @@ describe('Google translate tests', () => {
 
         it('should translate text', async () => {
             
-               const res = await google.translateText('hallo welt');
-                expect(res).to.equal("Hello World");
+               const res = await google.translateText('hallo');
+                expect(res.toLowerCase()).to.equal("hello");
             });
 
             it('should trim and translate text', async () => {
             
-                const res = await google.translateText('          hallo welt    ');
-                 expect(res).to.equal("Hello World");
+                const res = await google.translateText('          hallo    ');
+                 expect(res.toLowerCase()).to.equal("hello");
              });
  
     });
@@ -73,14 +73,14 @@ describe('Mymemory translate tests', () => {
 
         it('should translate text', async () => {
             
-               const res = await mymemory.translateText('hallo welt');
-                expect(res).to.equal("Hello World");
+               const res = await mymemory.translateText('welt');
+                expect(res.toLowerCase()).to.equal("world");
             });
 
             it('should trim and translate text', async () => {
             
-                const res = await mymemory.translateText('          hallo welt    ');
-                 expect(res).to.equal("Hello World");
+                const res = await mymemory.translateText('          welt    ');
+                 expect(res.toLowerCase()).to.equal("world");
              });
  
     });

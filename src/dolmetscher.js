@@ -15,7 +15,7 @@ class BaseTranslator {
     this.configs = {
       google: {
         url: "https://translate.google.com/m?",
-        pattern: 'class="t0">',
+        pattern: 'class="result-container">',
         supportedLanguages: this.languages,
         key: "q",
         minChars: 1,

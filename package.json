@@ -4,17 +4,16 @@
   "url": "https://github.com/nidhaloff/dolmetscher/issues",
   "email": "nidhalbacc@gmail.com",
   "description": "A flexible FREE and UNLIMITED node package to translate between different languages in a simple way using multiple translators.",
-  "main": "src/dolmetscher.js",
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.24.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.1.1",
-    "jssoup": "0.0.12"
+    "jssoup": "0.0.15",
+    "mocha": "^8.1.1"
   },
   "repository": "https://github.com/nidhaloff/dolmetscher",
   "license": "MIT",
