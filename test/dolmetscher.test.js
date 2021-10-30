@@ -39,8 +39,27 @@ describe('Google translate tests', () => {
             
                 const res = await google.translateText('          hallo    ');
                  expect(res.toLowerCase()).to.equal("hello");
-             });
- 
+             });             
+    });
+    describe('translateFile', () => {
+        it('should translate content of file', async () => {
+            const res = await google.translateFile(`${__dirname}/example.txt`);
+            expect(res).to.equal("Hello, you are great, keep it up");
+        });
+        it('fails with empty file', async () => {
+            try {
+                const res = await google.translateFile(`${__dirname}/empty.txt`);
+            } catch (err) {
+                expect(err).to.equal(`translation file error: The input text length must be of type string between ${mymemory.minChars} and ${mymemory.maxChars} characters`);
+            }
+        });
+        it('fails with non existing file', async () => {
+            try {
+                const res = await google.translateFile(`${__dirname}/nonExistFile.txt`);
+            } catch (err) {
+                expect(err).to.contain(`translation file error:`);
+            }
+        });
     });
 });
 
@@ -82,6 +101,25 @@ describe('Mymemory translate tests', () => {
                 const res = await mymemory.translateText('          welt    ');
                  expect(res.toLowerCase()).to.equal("world");
              });
- 
     });
+    describe('translateFile', () => {
+        it('should translate content of file', async () => {
+            const res = await mymemory.translateFile(`${__dirname}/example.txt`);
+            expect(res).to.equal("Hello, you are great, keep it up")
+        })
+        it('fails with empty file', async () => {
+            try {
+                const res = await mymemory.translateFile(`${__dirname}/empty.txt`);
+            } catch (err) {
+                expect(err).to.equal(`translation file error: The input text length must be of type string between ${mymemory.minChars} and ${mymemory.maxChars} characters`)
+            }
+        })
+        it('fails with non existing file', async () => {
+            try {
+                const res = await mymemory.translateFile(`${__dirname}/nonExistFile.txt`);
+            } catch (err) {
+                expect(err).to.contain(`translation file error:`)
+            }
+        })
+    })
 });
