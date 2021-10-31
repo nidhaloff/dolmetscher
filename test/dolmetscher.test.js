@@ -44,7 +44,7 @@ describe('Google translate tests', () => {
     describe('translateFile', () => {
         it('should translate content of file', async () => {
             const res = await google.translateFile(`${__dirname}/example.txt`);
-            expect(res).to.equal("Hello, you are great, keep it up");
+            expect(res).to.equal("Hello you are great keep up the good work");
         });
         it('fails with empty file', async () => {
             try {
