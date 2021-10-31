@@ -44,7 +44,7 @@ describe('Google translate tests', () => {
     describe('translateFile', () => {
         it('should translate content of file', async () => {
             const res = await google.translateFile(`${__dirname}/example.txt`);
-            expect(res).to.equal("Hello you are great keep up the good work");
+            expect(res.toLowerCase()).to.equal("hello how are you");
         });
         it('fails with empty file', async () => {
             try {
@@ -105,7 +105,7 @@ describe('Mymemory translate tests', () => {
     describe('translateFile', () => {
         it('should translate content of file', async () => {
             const res = await mymemory.translateFile(`${__dirname}/example.txt`);
-            expect(res).to.equal("Hello, you are great, keep it up")
+            expect(res.toLowerCase()).to.equal("hello, how are you?")
         })
         it('fails with empty file', async () => {
             try {
