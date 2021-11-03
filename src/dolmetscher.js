@@ -114,16 +114,18 @@ class GoogleTranslator extends BaseTranslator {
 
   async translateBatch(texts) {
     const arr = [];
-
-    try {
       for (const text of texts) {
-        const res = await this.translateText(text);
-        arr.push(res);
+        try {
+          const res = await this.translateText(text);
+          arr.push({ traduction: res });
+        } catch (err) {
+          arr.push(
+            {
+              text,
+              error: `error translating batch: ${err}`
+            });
+        }
       }
-    } catch (err) {
-      throw `error translating batch: ${err}`;
-    }
-
     return arr;
   }
 
@@ -200,13 +202,17 @@ class MymemoryTranslator extends BaseTranslator {
   async translateBatch(texts) {
     const arr = [];
 
-    try {
-      for (const text of texts) {
+    for (const text of texts) {
+      try {
         const res = await this.translateText(text);
-        arr.push(res);
+        arr.push({ traduction: res });
+      } catch (err) {
+        arr.push(
+          {
+            text,
+            error: `error translating batch: ${err}`
+          });
       }
-    } catch (err) {
-      throw `error translating batch: ${err}`;
     }
 
     return arr;
