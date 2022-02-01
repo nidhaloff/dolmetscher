@@ -106,7 +106,7 @@ class GoogleTranslator extends BaseTranslator {
       const body = html.slice(idx);
       const translated = body.substring(0, body.indexOf("<"));
 
-      return translated;
+      return translated.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
     } catch (err) {
       throw `translation error: ${err} `;
     }
@@ -118,7 +118,7 @@ class GoogleTranslator extends BaseTranslator {
     try {
       for (const text of texts) {
         const res = await this.translateText(text);
-        arr.push(res);
+        arr.push(res.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); }));
       }
     } catch (err) {
       throw `error translating batch: ${err}`;
@@ -133,7 +133,7 @@ class GoogleTranslator extends BaseTranslator {
         ? await fs.promises.readFile(f, "utf8")
         : fs.readFileSync(f, "utf-8");
       const result = await this.translateText(text);
-      return result;
+      return result.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
     } catch (err) {
       throw `translation file error: ${err}`;
     }
@@ -173,12 +173,12 @@ class MymemoryTranslator extends BaseTranslator {
 
       const data = await response.responseData.translatedText;
       if (data) {
-        return data;
+        return data.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
       }
 
       const matches = response.matches;
       if (!returnAll && matches.length === 1) {
-        return matches[0].translation;
+        return matches[0].translation.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
       }
 
       const synonyms = [];
@@ -190,7 +190,7 @@ class MymemoryTranslator extends BaseTranslator {
         throw `No synonyms found for ${text}`;
       }
 
-      return synonyms;
+      return synonyms.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
     } catch (err) {
       console.log(err);
     }
@@ -203,7 +203,7 @@ class MymemoryTranslator extends BaseTranslator {
     try {
       for (const text of texts) {
         const res = await this.translateText(text);
-        arr.push(res);
+        arr.push(res.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); }));
       }
     } catch (err) {
       throw `error translating batch: ${err}`;
@@ -218,7 +218,7 @@ class MymemoryTranslator extends BaseTranslator {
         ? await fs.promises.readFile(f, "utf8")
         : fs.readFileSync(f, "utf-8");
       const result = await this.translateText(text);
-      return result;
+      return result.replace(/&#(\d+);/g, function(match, number){ return String.fromCharCode(number); });
     } catch (err) {
       throw `translation file error: ${err}`;
     }
