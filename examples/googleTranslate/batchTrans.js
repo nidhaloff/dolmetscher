@@ -13,7 +13,7 @@ async function alternativeBatchTranslation(texts) {
       result.push('ERROR: ' + err) 
     })
     if(i == texts.length - 1) {
-      console.log(result)
+      console.log("batch translation: ", result)
     }
   }
   
