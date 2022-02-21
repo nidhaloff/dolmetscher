@@ -1,5 +1,6 @@
 const axios = require("axios");
 const fs = require("fs");
+const he = require("he");
 const languages = require('./languages');
 
 class BaseTranslator {
@@ -106,7 +107,7 @@ class GoogleTranslator extends BaseTranslator {
       const body = html.slice(idx);
       const translated = body.substring(0, body.indexOf("<"));
 
-      return translated;
+      return he.decode(translated);
     } catch (err) {
       throw `translation error: ${err} `;
     }
